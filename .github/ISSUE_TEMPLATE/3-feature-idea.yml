@@ -1,0 +1,43 @@
+name: 🧑‍💻 FEATURE IDEA
+description: Ajukan Ide Fitur
+title: '[IDEA]: <title>'
+labels: ['FEATURE 🚩', 'Status: Triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Terima kasih telah meluangkan waktu untuk membuat saran ini
+
+  - type: checkboxes
+    id: unique
+    attributes:
+      label: Ide belum pernah ada yang mengirim?
+      description: Harap telusuri untuk memastikan bahwa ide yang kamu sarankan belum ada yang mengirimnya
+      options:
+        - label: Saya telah mencari semua "issue" yang ada
+          required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Jelaskan ide fitur yang ingin Anda sarankan
+      description: Berikan deskripsi yang jelas dan ringkas tentang ide apa yang ingin Anda berikan
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Jelaskan alternatif ide yang telah Anda pertimbangkan
+      description: Berikan deskripsi yang jelas dan ringkas tentang kenapa harus menggunakan ide fitur ini
+    validations:
+      required: false
+
+  - type: textarea
+    id: further
+    attributes:
+      label: Informasi lebih lanjut
+      description: |
+        Harap berikan tautan, referensi, tangkapan layar, atau apa pun yang akan memberi kami lebih banyak konteks tentang masalah Anda
+
+        Tips: Anda dapat melampirkan gambar atau file log dengan mengeklik area ini untuk menyorotnya, lalu menyeret file masuk

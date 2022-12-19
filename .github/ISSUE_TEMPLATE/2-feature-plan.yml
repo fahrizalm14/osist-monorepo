@@ -1,0 +1,39 @@
+name: 🚧 FEATURE PLAN
+description: Ajukan Rencana Fitur (Hanya tim developer yang akan direspon)
+title: '[PLAN-<MAIN/SUB>]: <title>'
+labels: ['FEATURE 🚩', 'Status: ToDo']
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Nama Fitur
+      description: Masukan nama fitur yang akan dibuat
+      placeholder: 'eg: Sistem Login'
+    validations:
+      required: true
+
+  - type: input
+    id: mention
+    attributes:
+      label: Mention Fitur Utama
+      description: Jika sub feature silahkan mention fitur utama, jika bukan silahkan abaikan
+      placeholder: 'eg: #1 Sistem Login'
+    validations:
+      required: false
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Jelaskan fitur yang akan dibuat
+      description: Berikan deskripsi yang jelas dan ringkas tentang apa yang Anda inginkan terjadi
+    validations:
+      required: true
+
+  - type: textarea
+    id: further
+    attributes:
+      label: Informasi lebih lanjut
+      description: |
+        Harap berikan tautan, referensi, tangkapan layar, atau apa pun yang akan memberi kami lebih banyak konteks tentang masalah Anda
+
+        Tips: Anda dapat melampirkan gambar atau file log dengan mengeklik area ini untuk menyorotnya, lalu menyeret file masuk

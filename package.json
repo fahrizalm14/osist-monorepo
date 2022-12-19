@@ -1,0 +1,43 @@
+{
+  "name": "osist-monorepo",
+  "version": "0.0.0",
+  "description": "Operator Sistem Sekolah Terpadu (OSIST) adalah aplikasi administrasi sekolah yang mengontrol beberapa layanan atau sistem yang ada di dalam sekolah. Tersedia untuk jenjang pendidikan SD/SMP/SMA (sederjat)",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "husky install",
+    "release": "standard-version",
+    "release:minor": "standard-version --release-as minor",
+    "release:patch": "standard-version --release-as patch",
+    "release:major": "standard-version --release-as major",
+    "commit": "cz"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fahrizalm14/osist-monorepo.git"
+  },
+  "keywords": [
+    "siakad",
+    "sim",
+    "aplikasi",
+    "sekolah"
+  ],
+  "author": "CV ERZET ID",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/fahrizalm14/osist-monorepo/issues"
+  },
+  "homepage": "https://github.com/fahrizalm14/osist-monorepo#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
+    "commitizen": "^4.2.6",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^8.0.2",
+    "standard-version": "^9.5.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+blank_issues_enabled: false
+contact_links:
+  - name: OSIST Website
+    url: https://github.com/fahrizalm14/osist#readme
+    about: Details & Docs for OSIST Public Projects
+
+  - name: Security Report Email
+    email: fahrizalm14@gmail.com
+    about: For reports of SERIOUS Security Flaws ONLY

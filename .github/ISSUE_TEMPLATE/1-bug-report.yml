@@ -1,0 +1,87 @@
+name: 🐞 BUG REPORT
+description: Ajukan Laporan Bug
+title: '[BUG]: <title>'
+labels: ['BUG 🐞', 'Status: Triage']
+body:
+  - type: checkboxes
+    id: unique
+    attributes:
+      label: Masalah belum pernah dilaporkan?
+      description: Harap telusuri untuk memastikan bahwa masalah ini belum pernah dilaporkan
+      options:
+        - label: Saya telah mencari semua "issue" yang ada
+          required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Detail Masalah
+      description: Berikan deskripsi yang jelas dan ringkas tentang perilaku SAAT INI yang Anda alami
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Perilaku yang Diharapkan
+      description: Berikan deskripsi yang jelas dan ringkas tentang perilaku yang ingin Anda lihat
+    validations:
+      required: false
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Langkah-langkah Reproduksi
+      description: Berikan langkah-langkah yang mungkin kami ambil untuk mereplikasi masalah selama pengujian
+      placeholder: |
+        1. Di environment ini...
+        2. Dengan konfigurasi ini ...
+        3. Run '...'
+        4. Lihat kesalahan
+    validations:
+      required: false
+
+  - type: input
+    id: prevalence
+    attributes:
+      label: Prevalensi Masalah?
+      description: Seberapa sering Anda mengalami masalah ini?
+      placeholder: 'Contoh: Setiap kali saya membuka aplikasi'
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Versi perangkat lunak kami yang mana yang bermasalah?
+      placeholder: 'eg: 0.1.0'
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: |
+        Jelaskan environment tempat Anda mengalami masalah ini
+        Contoh:
+          - **OS**: WSL Ubuntu 20.04
+          - **Node**: 13.14.0
+          - **NPM**: 7.6.3
+          - **Browser**: Firefox 107.0.1
+      value: |
+        - **OS**:
+        - **Node**:
+        - **NPM**:
+        - **Browser**:
+      render: Markdown
+
+  - type: textarea
+    id: further
+    attributes:
+      label: Informasi lebih lanjut
+      description: |
+        Harap berikan tautan, referensi, tangkapan layar, atau apa pun yang akan memberi kami lebih banyak konteks tentang masalah Anda
+
+        Tips: Anda dapat melampirkan gambar atau file log dengan mengeklik area ini untuk menyorotnya, lalu menyeret file masuk
