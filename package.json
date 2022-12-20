@@ -4,6 +4,14 @@
   "description": "Operator Sistem Sekolah Terpadu (OSIST) adalah aplikasi administrasi sekolah yang mengontrol beberapa layanan atau sistem yang ada di dalam sekolah. Tersedia untuk jenjang pendidikan SD/SMP/SMA (sederjat)",
   "main": "index.js",
   "scripts": {
+    "clean": "npm run clean --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "prettier": "npm run prettier --workspaces --if-present",
+    "build": "npm run build --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "test:ignoreUnhandled": "npm run test:ignoreUnhandled --workspaces --if-present",
+    "check": "npm run lint; npm run build; npm run test",
+    "reset": "npm run clean; npm run check",
     "prepare": "husky install",
     "release": "standard-version",
     "release:minor": "standard-version --release-as minor",
@@ -21,7 +29,7 @@
     "aplikasi",
     "sekolah"
   ],
-  "author": "CV ERZET ID",
+  "author": "CV ERZET ID <erzetindo@gmail.com>",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/fahrizalm14/osist-monorepo/issues"
@@ -30,14 +38,36 @@
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
+    "@rollup/plugin-commonjs": "22.0.2",
+    "@rollup/plugin-node-resolve": "13.3.0",
+    "@types/node": "18.7.3",
+    "@typescript-eslint/eslint-plugin": "5.33.0",
+    "@typescript-eslint/parser": "5.33.0",
     "commitizen": "^4.2.6",
     "cz-conventional-changelog": "^3.3.0",
+    "eslint": "8.22.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-config-standard": "17.0.0",
+    "eslint-plugin-import": "2.26.0",
+    "eslint-plugin-node": "11.1.0",
+    "eslint-plugin-prettier": "4.2.1",
+    "eslint-plugin-promise": "6.0.0",
+    "eslint-plugin-react": "7.30.1",
+    "eslint-plugin-standard": "5.0.0",
     "husky": "^8.0.2",
-    "standard-version": "^9.5.0"
+    "prettier": "2.7.1",
+    "rollup": "2.78.0",
+    "rollup-plugin-esbuild": "4.9.3",
+    "standard-version": "^9.5.0",
+    "typescript": "4.7.4",
+    "vitest": "0.21.1"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
