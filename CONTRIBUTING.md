@@ -40,7 +40,7 @@ Bantu kami menjaga OSIST tetap rahasia. Silahkan baca dan ikuti kami [Code of Co
 
 # Persiapan
 
-Pertama-tama, Kamu harus membuat fork dari repositori [osist-monorepo](https://github.com/fahrizalm14/osist-monorepo/) untuk melakukan perubahan. Metode untuk melakukan fork pada repositori dapat ditemukan di [ Dokumentasi GitHub ](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+Pertama-tama, Kamu harus membuat fork dari repositori [osist-monorepo](https://github.com/fahrizalm14/osist-monorepo/) untuk melakukan perubahan. Metode untuk melakukan fork pada repositori dapat ditemukan di [Dokumentasi GitHub](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
 
 Kemudian tambahkan fork Kamu sebagai proyek local:
 
@@ -81,82 +81,91 @@ git remote -v
 
 # Menulis Kode
 
-1.  Buka project board OSIST repository atau buka [link ini](https://github.com/users/fahrizalm14/projects/11).
-2.  Cari issue yang di tugaskan (assign) untuk kamu.
-3.  Konfirmasi feature/issue yang akan kamu kerjakan (agar pengelola repository merubah status menjadi `todo`)
-<!-- 4.  Jika disetujui kamu bisa langsung mengerjakannya -->
-4.  Mulai pengembangan local.
+1. Buka project board OSIST repository atau buka [link ini](https://github.com/users/fahrizalm14/projects/11).
+2. Cari issue yang di tugaskan (assign) untuk kamu.
+3. Konfirmasi feature/issue yang akan kamu kerjakan (agar pengelola repository merubah status menjadi `todo`)
+4. Mulai pengembangan local.
+   <!-- 4.  Jika disetujui kamu bisa langsung mengerjakannya -->
 
-    > Pastikan kamu sudah berada didalam folder project OSIST
+   > Pastikan kamu sudah berada didalam folder project OSIST
 
-    - Menerima pembaruan remote, agar tetap up to date dengan repositori pusat :
+- Menerima pembaruan remote, agar tetap up to date dengan repositori pusat :
+
+  ```sh
+  git pull origin develop
+  ```
+
+  > _Gunakan branch develop untuk memulai engembangan_
+
+- **Membuat branch baru**
+
+  Sebelum membuat branch baru, Anda perlu mengetahui `branch strategy` pada project ini. Lihat gambar dibawah ini:
+
+  ![logo osist](/.github/asset/branch-startegy.png "logo osist branch strategy")
+
+  > Tips: penamaan branch: USERNAME:patch/1234-name-issue
+
+  ```sh
+    git checkout -b USERNAME:patch/1234-name-issue
+  ```
+
+- Silahkan membuat patch untuk project ini (**termasuk test yang mencakupnya**.)
+- **Jalankan semua unit test**
+- Commit perubahan yang kamu lakukan, baca [Aturan pesan commit](#aturan-pesan-commit). Hal ini diperlukan karena catatan rilis dibuat secara otomatis dari commits ini.
+
+  ```sh
+  git commit -a
+  ```
+
+  > Note: the optional commit `-a` command line option will automatically "add" and "rm" edited files.
+
+- Push branch kamu ke Github
+
+  ```sh
+  git push fork USERNAME:patch/1234-name-issue
+  ```
+
+- Di GitHub, pull request ke `osist-monorepo:develop`.
+
+  - Jika kami menyarankan perubahan, maka:
+
+    - Lakukan pembaruan yang diperlukan.
+    - Jalankan ulang test suite OSIST untuk memastikan pengujian masih lulus.
+    - Rebase cabang Anda dan dorong paksa ke repositori GitHub Anda (ini akan memperbarui Permintaan Tarik Anda):
 
       ```sh
-      git pull origin develop
+      git rebase develop -i
+      git push fork -f
       ```
 
-      > _Gunakan branch develop untuk memulai engembangan_
+- Setelah permintaan tarik Anda digabungkan, Anda dapat dengan aman menghapus cabang Anda dan menarik perubahannya
+  dari repositori develop (upstream):
 
-    - **Membuat branch baru**
+  - Hapus remote branch di GitHub baik melalui UI web GitHub atau shell local Anda sebagai berikut:
 
-      Sebelum membuat branch baru, Anda perlu mengetahui `branch strategy` pada project ini. Lihat gambar dibawah ini:
+    ```sh
+    git push fork --delete USERNAME:patch/1234-name-issue
+    ```
 
-      ![logo osist](/.github/asset/branch-startegy.png 'logo osist branch strategy')
+  - Lihat cabang develop:
 
-      > Tips: penamaan branch: USERNAME:patch/1234-name-issue
+    ```sh
+    git checkout develop -f
+    ```
 
-    - Silahkan membuat patch untuk project ini (**termasuk test yang mencakupnya**.)
-    - **Jalankan semua unit test**
-    - Commit perubahan yang kamu lakukan, baca [Aturan pesan commit](#aturan-pesan-commit). Hal ini diperlukan karena catatan rilis dibuat secara otomatis dari commits ini.
-      ```sh
-      git commit -a
-      ```
-      > Note: the optional commit `-a` command line option will automatically "add" and "rm" edited files.
-    - Push branch kamu ke Github
-      ```sh
-      git push fork USERNAME:patch/1234-name-issue
-      ```
-    - Di GitHub, pull request ke `osist-monorepo:develop`.
+  - Hapus cabang local:
 
-      - Jika kami menyarankan perubahan, maka:
+    ```sh
+    git branch -D USERNAME/patch-1234-name-issue
+    ```
 
-        - Lakukan pembaruan yang diperlukan.
-        - Jalankan ulang test suite OSIST untuk memastikan pengujian masih lulus.
-        - Rebase cabang Anda dan dorong paksa ke repositori GitHub Anda (ini akan memperbarui Permintaan Tarik Anda):
+  - Perbarui branch develop Anda dengan versi upstream terbaru:
 
-          ```shell
-          git rebase develop -i
-          git push fork -f
-          ```
+    ```sh
+    git pull origin --ff develop
+    ```
 
-    - Setelah permintaan tarik Anda digabungkan, Anda dapat dengan aman menghapus cabang Anda dan menarik perubahannya
-      dari repositori develop (upstream):
-
-      - Hapus remote branch di GitHub baik melalui UI web GitHub atau shell local Anda sebagai berikut:
-
-        ```sh
-        git push fork --delete USERNAME:patch/1234-name-issue
-        ```
-
-      - Lihat cabang develop:
-
-        ```sh
-        git checkout develop -f
-        ```
-
-      - Hapus cabang local:
-
-        ```sh
-        git branch -D USERNAME:patch/1234-name-issue
-        ```
-
-      - Perbarui branch develop Anda dengan versi upstream terbaru:
-
-        ```sh
-        git pull --ff develop
-        ```
-
-      Itu dia! Terima kasih atas kontribusi anda!
+    Itu dia! Terima kasih atas kontribusi anda!
 
 ## Aturan pesan commit
 
@@ -180,13 +189,13 @@ format yang menyertakan **type** , **scope** dan **subject** :
 Setiap baris pesan commit tidak boleh lebih dari 100 karakter! Ini memungkinkan pesan menjadi lebih mudah
 untuk membaca di GitHub serta di berbagai alat git.
 
-**Footer** harus berisi [ referensi penutup untuk suatu masalah ](https://help.github.com/articles/closing-issues-via-commit-messages/) jika ada.
+**Footer** harus berisi [referensi penutup untuk suatu masalah](https://help.github.com/articles/closing-issues-via-commit-messages/) jika ada.
 
-Contoh: (bahkan lebih banyak [ sampel ](https://github.com/fahrizalm14/osist-monorepo/commits/develop))
+Contoh: (bahkan lebih banyak [sampel](https://github.com/fahrizalm14/osist-monorepo/commits/develop))
 
 #### Revert
 
-Jika commit mengembalikan commit sebelumnya, itu harus dimulai dengan `revert: ` , diikuti dengan header dari commit yang dikembalikan. Di bagian badan harus tertulis: `This reverts commit <hash>.` , di mana hash adalah SHA dari commit yang dikembalikan.
+Jika commit mengembalikan commit sebelumnya, itu harus dimulai dengan `revert:` , diikuti dengan header dari commit yang dikembalikan. Di bagian badan harus tertulis: `This reverts commit <hash>.` , di mana hash adalah SHA dari commit yang dikembalikan.
 
 #### Type
 
