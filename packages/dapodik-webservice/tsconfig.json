@@ -1,9 +1,9 @@
 {
-    "extends": "../../tsconfig.json",
-    "include": ["./src/**/*"],
-    "compilerOptions": {
-      "rootDir": "src",
-      "outDir": "./dist/types",
-      "emitDeclarationOnly": true
-    }
+  "extends": "../../tsconfig.json",
+  "include": ["./src/**/*"],
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "./dist/types",
+    "emitDeclarationOnly": true
   }
+}
