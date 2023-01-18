@@ -1,0 +1,79 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBorder": "#bf0060"
+  },
+  "cSpell.words": ["openapi", "siapos", "SISAPP", "validasi"],
+  "commentTranslate.targetLanguage": "id",
+  "todo-tree.general.tags": [
+    "~NOTE",
+    "~TODO",
+    "~FIXME",
+    "~MARK",
+    "~BUG",
+    "~HACK",
+    "~FIXME",
+    "[ ]",
+    "[x]"
+  ],
+  "todo-tree.general.tagGroups": {
+    "FIXME": ["FIXME", "FIXIT", "FIX"]
+  },
+  "todo-tree.highlights.defaultHighlight": {
+    "type": "tag-and-subTag",
+    "fontWeight": "bold",
+    "foreground": "#000",
+    "gutterIcon": true
+  },
+  "todo-tree.highlights.customHighlight": {
+    "~NOTE": {
+      "background": "#fb2163",
+      "iconColour": "#fb2163",
+      "icon": "book"
+    },
+    "~TODO": {
+      "background": "#FFD703",
+      "iconColour": "#FFD703",
+      "icon": "checklist"
+    },
+    "~FIXME": {
+      "background": "#FF01FF",
+      "iconColour": "#FF01FF",
+      "icon": "flame"
+    },
+    "~HACK": {
+      "background": "#157EFB",
+      "iconColour": "#157EFB",
+      "icon": "rocket"
+    },
+    "~BUG": {
+      "background": "#fb2c15",
+      "iconColour": "#fb2c15",
+      "icon": "bug"
+    },
+    "~MARK": {
+      "background": "#fb8c15",
+      "iconColour": "#fb8c15",
+      "icon": "tag"
+    },
+    "[ ]": {
+      "background": "#fc2e46",
+      "iconColour": "#fc2e46",
+      "icon": "square"
+    },
+    "[x]": {
+      "background": "#2bfabc",
+      "iconColour": "#2bfabc",
+      "icon": "square-fill"
+    }
+  },
+  "commentTranslate.hover.enabled": true,
+  "codedox": {
+    "fileheader": {
+      "templates": {
+        "*": [
+          "// Copyright (C) 2023 CV ERZET ID <erzetindo@gmail.com> This file is part of the SisApp project. The SisApp project can not be copied and/or distributed without the express permission of CV ERZET ID."
+        ]
+      }
+    }
+  }
+}
