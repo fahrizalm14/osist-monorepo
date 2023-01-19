@@ -103,10 +103,10 @@ git remote -v
 
   ![logo osist](/.github/asset/branch-startegy.png "logo osist branch strategy")
 
-  > Tips: penamaan branch: USERNAME:patch/1234-name-issue
+  > Tips: penamaan branch: USERNAME/patch-1234-name-issue
 
   ```sh
-    git checkout -b USERNAME:patch/1234-name-issue
+    git checkout -b USERNAME/patch-1234-name-issue
   ```
 
 - Silahkan membuat patch untuk project ini (**termasuk test yang mencakupnya**.)
@@ -122,7 +122,7 @@ git remote -v
 - Push branch kamu ke Github
 
   ```sh
-  git push fork USERNAME:patch/1234-name-issue
+  git push fork USERNAME/patch-1234-name-issue
   ```
 
 - Di GitHub, pull request ke `osist-monorepo:develop`.
@@ -144,7 +144,7 @@ git remote -v
   - Hapus remote branch di GitHub baik melalui UI web GitHub atau shell local Anda sebagai berikut:
 
     ```sh
-    git push fork --delete USERNAME:patch/1234-name-issue
+    git push fork --delete USERNAME/patch-1234-name-issue
     ```
 
   - Lihat cabang develop:
