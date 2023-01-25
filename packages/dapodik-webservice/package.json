@@ -29,6 +29,7 @@
     "test:ignoreUnhandled": "npm run test:pre; npm run test:run -- --dangerouslyIgnoreUnhandledErrors"
   },
   "dependencies": {
+    "@osist/error": "^0.0.9",
     "axios": "^1.2.1"
   }
 }
