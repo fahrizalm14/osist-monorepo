@@ -1,0 +1,247 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "OSIST RESTFul API",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "description": "",
+      "url": "https://{type}.osist.id",
+      "variables": {
+        "type": {
+          "default": "api",
+          "enum": ["dev", "api"],
+          "description": "Server environment"
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "name": "School administrator",
+      "description": "",
+      "externalDocs": {
+        "description": "",
+        "url": ""
+      }
+    }
+  ],
+  "externalDocs": {
+    "description": "",
+    "url": ""
+  },
+
+  "paths": {
+    "/syncs": {
+      "post": {
+        "tags": ["School administrator"],
+        "summary": "Synchronization from dapodik web service",
+        "description": "Menyinkronkan data yang diambil dari dapodik",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "npsn": {
+                    "required": true,
+                    "type": "number",
+                    "example": 20000000
+                  },
+                  "key": {
+                    "required": true,
+                    "type": "string",
+                    "example": "token"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponsesWithoutData"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/schools/{npsn}": {
+      "get": {
+        "tags": ["School administrator"],
+        "summary": "Get school by NPSN",
+        "description": "Mengambil data sekolahan",
+        "parameters": [
+          {
+            "name": "npsn",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "example": 2000000
+            }
+          }
+        ]
+      }
+    },
+    "/classrooms": {
+      "get": {
+        "tags": ["School administrator"],
+        "summary": "Get all classrooms",
+        "description": "Mengambil semua data rombongan belajar"
+      }
+    },
+    "/classrooms/main": {
+      "get": {
+        "tags": ["School administrator"],
+        "summary": "Get main classroom",
+        "description": "Mengambil rombongan belajar yang bertipe 'kelas', yang digunakan untuk logic"
+      }
+    },
+    "/classrooms/extracurricular": {
+      "get": {
+        "tags": ["School administrator"],
+        "summary": "Get extracurricular classroom",
+        "description": "Mengambil rombongan belajar yang bertipe ekstrakulikuler"
+      }
+    },
+    "/classrooms/other": {
+      "get": {
+        "tags": ["School administrator"],
+        "summary": "Get other classroom",
+        "description": "Mengambil rombongan belajar yang bukan bertipe kelas atau ekstrakulikuler"
+      }
+    },
+    "/classrooms/{classroomId}/student": {
+      "get": {
+        "tags": ["School administrator"],
+        "summary": "Get students by classroom id",
+        "description": "Mengambil data siswa (peserta didik) rombongan belajar",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "classroomId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/classrooms/{classroomId}/learn": {
+      "get": {
+        "tags": ["School administrator"],
+        "summary": "Get learns by classroom id",
+        "description": "Mengambil data pembelajaran rombongan belajar",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "classroomId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/learns": {
+      "get": {
+        "tags": ["School administrator"],
+        "summary": "Get all learns",
+        "description": "Mengambil semua data pembelajaran"
+      }
+    },
+    "/learns/subject": {
+      "get": {
+        "tags": ["School administrator"],
+        "summary": "Get all subjects",
+        "description": "Mengambil semua mata pelajaran"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MetaResponse": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "number",
+            "example": 25
+          },
+          "offset": {
+            "type": "number",
+            "example": 0
+          },
+          "limit": {
+            "type": "number",
+            "example": 25
+          },
+          "total": {
+            "type": "number",
+            "example": 52
+          }
+        }
+      },
+      "ResponsesWithoutData": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "number",
+            "example": 200
+          },
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "example": "Success message"
+          }
+        }
+      },
+      "ResponsesWithData": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "number",
+            "example": 200
+          },
+          "success": {
+            "type": "boolean",
+            "example": true
+          },
+          "message": {
+            "type": "string",
+            "example": "Success message"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/MetaResponse"
+          },
+          "data": {
+            "type": "array",
+            "items": {}
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "Authorization"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ]
+}
