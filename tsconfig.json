@@ -32,7 +32,6 @@
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "suppressImplicitAnyIndexErrors": true,
     "isolatedModules": true
   },
   "include": ["**/package.json", "packages", "mock/dapodik-webservice/src/interface"],
