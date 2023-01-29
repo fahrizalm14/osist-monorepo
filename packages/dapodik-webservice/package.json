@@ -1,6 +1,6 @@
 {
   "name": "@osist/dapodik-webservice",
-  "version": "0.0.9",
+  "version": "1.0.0-alpha.0",
   "author": "CV ERZET ID <erzetindo@gmail.com>",
   "homepage": "https://github.com/fahrizalm14/osist-monorepo",
   "license": "MIT",
@@ -29,7 +29,7 @@
     "test:ignoreUnhandled": "npm run test:pre; npm run test:run -- --dangerouslyIgnoreUnhandledErrors"
   },
   "dependencies": {
-    "@osist/error": "^0.0.9",
+    "@osist/error": "^1.0.0-alpha.0",
     "axios": "^1.2.1"
   },
   "description": "## Instalasi",
