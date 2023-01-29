@@ -31,5 +31,9 @@
   "dependencies": {
     "@osist/error": "^0.0.9",
     "axios": "^1.2.1"
+  },
+  "description": "## Instalasi",
+  "directories": {
+    "test": "test"
   }
 }

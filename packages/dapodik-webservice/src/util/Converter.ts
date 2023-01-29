@@ -9,7 +9,7 @@ import { ISchool } from "../interface/ISchool";
 import { ISekolah } from "../interface/ISekolah";
 import { IStudent } from "../interface/IStudent";
 import { IUser } from "../interface/IUser";
-import { getUniqueObject, onlyUnique } from "./ArrayManipulation";
+import { getUniqueObject } from "./ArrayManipulation";
 
 export class Converter {
   static user(pengguna: IPengguna): IUser {

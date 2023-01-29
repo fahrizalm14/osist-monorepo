@@ -51,3 +51,22 @@ export default function createConfig(packageName, packageDependencies) {
     },
   ];
 }
+
+export function createConfigServer(packageName, packageDependencies) {
+  return [
+    {
+      input,
+      plugins,
+      external: packageDependencies,
+      output: [
+        {
+          file: "./dist/index.cjs.js",
+          format: "cjs",
+          exports: "named",
+          name: packageName,
+          sourcemap: true,
+        },
+      ],
+    },
+  ];
+}
